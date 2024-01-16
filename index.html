@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>frydenborg.no</title>
+  <title>frydenborg.no</title>  
   <style>
     body {
       margin: 0;
@@ -43,6 +43,12 @@
   <button id="play">▶</button>
 
 </div>
+
+
+<div id="hidden">
+  <a href="hidden/hidden.html">Y</a>
+</div>
+
 <script>
   // Get the audio element by its id
   var audio = document.getElementById("audio");
@@ -73,6 +79,23 @@
   });
 </script>
 <style>
+
+  /* Hide the HIDDEN link 
+  #hidden {
+    display: none;
+  }
+  */
+
+/* Position the HIDDEN */
+#hidden {
+    position: absolute;
+    top: 39.5%;
+    left: 4.8%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color-scheme:green;
+  }
+  
   /* Hide the audio element */
   audio {
     display: none;
