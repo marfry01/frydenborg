@@ -1,131 +1,103 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      cursor: none; /* Hide the default cursor */
-    }
-
-    #background {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-image: url("bilde1.jpg");
-      background-size: 100% 100%; /* Stretch the image to fit the screen */
-      background-position: center;
-      transform-origin: center;
-      transition: transform 0.5s;
-    }
-
-    #background:active {
-      transform: scale(1.1); /* Zoom in the image when pressed */
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added a meta tag for responsiveness -->
+    <title>Frydenborg</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Added a link to Font Awesome for icons -->
+    <script src="script.js"></script>
 </head>
 <body>
-  <div id="background"></div>
-  <audio src="music1.mp3" id="audio" controls="false"></audio>
-<div id="controls">
-  <button id="play">▶</button>
-  <button id="pause">⏸</button>
-  <button id="volume">🔊</button>
-</div>
-<script>
-  // Get the audio element by its id
-  var audio = document.getElementById("audio");
-  // Get the play button by its id
-  var play = document.getElementById("play");
-  // Get the pause button by its id
-  var pause = document.getElementById("pause");
-  // Get the volume button by its id
-  var volume = document.getElementById("volume");
-  // Add an event listener for the click event on the play button
-  play.addEventListener("click", function() {
-    // Play the audio
-    audio.play();
-  });
-  // Add an event listener for the click event on the pause button
-  pause.addEventListener("click", function() {
-    // Pause the audio
-    audio.pause();
-  });
-  // Add an event listener for the click event on the volume button
-  volume.addEventListener("click", function() {
-    // Toggle the volume between 0 and 1
-    if (audio.volume == 0) {
-      audio.volume = 1;
-    } else {
-      audio.volume = 0;
-    }
-  });
-</script>
-<style>
-  /* Hide the audio element */
-  audio {
-    display: none;
-  }
-  /* Position the controls over the audio element */
-  #controls {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-  /* Style the buttons */
-  button {
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    background-color: lightpurple;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    transition: transform 0.5s;
-  }
-  /* Change the color of the buttons when the mouse is over */
-  button:hover {
-    background-color: purple;
-  }
-  /* Create the warped or distorted effect on the buttons when they are pressed */
-  button:active {
-    transform: scale(0.8) skew(-10deg, -10deg);
-  }
-</style>
-
-  <script>
-    // Get the background element
-    var background = document.getElementById("background");
-
-    // Add an event listener for mouse movement
-    document.addEventListener("mousemove", function(event) {
-      // Get the mouse coordinates relative to the center of the window
-      var x = event.clientX - window.innerWidth / 2;
-      var y = event.clientY - window.innerHeight / 2;
-
-      // Calculate the percentage of the mouse position relative to the window size
-      var xPercent = x / window.innerWidth * 100;
-      var yPercent = y / window.innerHeight * 100;
-
-      // Update the transform origin of the background image to match the mouse position
-      background.style.transformOrigin = xPercent + "% " + yPercent + "%";
-    });
-
-          // Add an event listener for the mousedown event
-  img.addEventListener("mousedown", function() {
-    // Set the transform property to rotate the image by 90 degrees
-    img.style.transform = "rotate(180deg)";
-  });
-  // Add an event listener for the mouseup event
-  img.addEventListener("mouseup", function() {
-    // Set the transform property to rotate the image back to its original position
-    img.style.transform = "rotate(0deg)";
-  });
-  </script>
+    <div class="container"> <!-- Added a max-width and a center alignment -->
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo"> <!-- Added a logo image -->
+            <h1>FRYDENBORG</h1>
+            <nav>
+                <div class="menu-icon"> <!-- Added a div element for the menu icon -->
+                    <i class="fas fa-bars"></i> <!-- Added an icon for the menu icon -->
+                </div>
+                <ul class="menu"> <!-- Added a class for the menu -->
+                    <li><a href="#main" class="active">Main</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <div id="main" class="section">
+                <div class="slider"> <!-- Added a relative width and height and position relative -->
+                    <img src="image1.jpg" alt="Image 1" class="slide">
+                    <img src="image2.jpg" alt="Image 2" class="slide">
+                    <img src="image3.jpg" alt="Image 3" class="slide">
+                    <div class="controls">
+                        <span class="prev" onclick="prevSlide()">❮</span>
+                        <span class="next" onclick="nextSlide()">❯</span>
+                    </div>
+                </div>
+                <div class="info">
+                    <h2>Welcome to Frydenborg</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem consequat consequat. Morbi vitae leo quis nisi tincidunt tincidunt. Fusce quis augue id lorem sagittis ullamcorper. Quisque id nisl ut nisi aliquet ultrices. Donec quis lacus ut justo ullamcorper ullamcorper. Nulla facilisi.</p>
+                </div>
+            </div>
+            <div id="services" class="section">
+                <h2>Our Services</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem consequat consequat. Morbi vitae leo quis nisi tincidunt tincidunt. Fusce quis augue id lorem sagittis ullamcorper. Quisque id nisl ut nisi aliquet ultrices. Donec quis lacus ut justo ullamcorper ullamcorper. Nulla facilisi.</p>
+            </div>
+            <div id="music" class="section"> <!-- Added a display none property -->
+                <h2>Our Music</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="library">Choose a song:</label>
+                        <select id="library" name="library">
+                            <option value="song1.wav">Song 1</option>
+                            <option value="song2.wav">Song 2</option>
+                            <option value="song3.mp3">Song 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Play</button>
+                    </div>
+                </form>
+                <audio id="audio" src="" controls></audio>
+            </div>
+            <div id="contact" class="section">
+                <h2>Contact Us</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+            <div id="about" class="section">
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem eu lorem consequat consequat. Morbi vitae leo quis nisi tincidunt tincidunt. Fusce quis augue id lorem sagittis ullamcorper. Quisque id nisl ut nisi aliquet ultrices. Donec quis lacus ut justo ullamcorper ullamcorper. Nulla facilisi.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2024 Frydenborg. All rights reserved.</p>
+            <video id="video" src="video.mp4" autoplay muted controls></video> <!-- Added a video element and some attributes -->
+            <div class="contact"> <!-- Added a div element and some paragraphs for the contact information -->
+                <p>Phone: +47-988-33-559</p>
+                <p>E-mail: info@frydenborg.no</p>
+                <p>Address: 123 Main Street, Norway</p>
+            </div>
+            <button id="top" onclick="topFunction()">↑</button> <!-- Added a button element and some attributes for the floatable button -->
+        </div>
+    </div>
 </body>
 </html>
