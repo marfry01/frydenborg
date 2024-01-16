@@ -1,23 +1,56 @@
-<style>
-  img {
-    /* Set the image as the background of the img element */
-    background-image: url("bilde2.jpg");
-    /* Make the image cover the entire element */
-    background-size: cover;
-    /* Set the width and height of the img element to 100% */
-    width: 100%;
-    height: 100%;
-    /* Set the transition duration for the transform property */
-    transition: transform 0.5s;
-    /* Add scroll bars to the img element */
-    overflow: scroll;
-  }
-</style>
-<img src="bilde2.jpg" alt="A beautiful flower" id="img">
-<script>
-  // Get the img element by its id
-  var img = document.getElementById("img");
-  // Add an event listener for the mousedown event
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      cursor: none; /* Hide the default cursor */
+    }
+
+    #background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("bilde1.jpg");
+      background-size: 100% 100%; /* Stretch the image to fit the screen */
+      background-position: center;
+      transform-origin: center;
+      transition: transform 0.5s;
+    }
+
+    #background:active {
+      transform: scale(1.1); /* Zoom in the image when pressed */
+    }
+
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+  <audio hidden autoplay loop> <!-- Remove the muted attribute -->
+    <source src="music1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    // Get the background element
+    var background = document.getElementById("background");
+
+    // Add an event listener for mouse movement
+    document.addEventListener("mousemove", function(event) {
+      // Get the mouse coordinates relative to the center of the window
+      var x = event.clientX - window.innerWidth / 2;
+      var y = event.clientY - window.innerHeight / 2;
+
+      // Calculate the percentage of the mouse position relative to the window size
+      var xPercent = x / window.innerWidth * 100;
+      var yPercent = y / window.innerHeight * 100;
+
+      // Update the transform origin of the background image to match the mouse position
+      background.style.transformOrigin = xPercent + "% " + yPercent + "%";
+
+
+          // Add an event listener for the mousedown event
   img.addEventListener("mousedown", function() {
     // Set the transform property to rotate the image by 90 degrees
     img.style.transform = "rotate(180deg)";
@@ -27,4 +60,6 @@
     // Set the transform property to rotate the image back to its original position
     img.style.transform = "rotate(0deg)";
   });
-</script>
+  </script>
+</body>
+</html>
