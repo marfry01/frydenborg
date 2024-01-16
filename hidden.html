@@ -1,0 +1,140 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>frydenborg.no</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+/*      cursor: none; /* Hide the default cursor */
+    }
+
+    #background {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url("hidden_bilde.jpg");
+      background-size: 100% 100%; /* Stretch the image to fit the screen */
+      background-position: center;
+      transform-origin: center;
+      transition: transform 0.5s;
+    }
+
+    #background:active {
+      transform: scale(5.1); /* Zoom in the image when pressed */
+    }
+
+  /*
+  <button id="pause">⏸</button>
+  <button id="volume">🔊</button>
+  */
+
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+  <audio src="hidden_music.mp3" loop id="audio" controls="false"></audio>
+<div id="controls">
+  <button id="play">▶</button>
+
+</div>
+<script>
+  // Get the audio element by its id
+  var audio = document.getElementById("audio");
+  // Get the play button by its id
+  var play = document.getElementById("play");
+  // Get the pause button by its id
+  var pause = document.getElementById("pause");
+  // Get the volume button by its id
+  var volume = document.getElementById("volume");
+  // Add an event listener for the click event on the play button
+  play.addEventListener("click", function() {
+    // Play the audio
+    audio.play();
+  });
+  // Add an event listener for the click event on the pause button
+  pause.addEventListener("click", function() {
+    // Pause the audio
+    audio.pause();
+  });
+  // Add an event listener for the click event on the volume button
+  volume.addEventListener("click", function() {
+    // Toggle the volume between 0 and 1
+    if (audio.volume == 0) {
+      audio.volume = 1;
+    } else {
+      audio.volume = 0;
+    }
+  });
+</script>
+<style>
+  /* Hide the audio element */
+  audio {
+    display: none;
+  }
+  /* Position the controls over the audio element */
+  #controls {
+    position: absolute;
+    top: 62%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  /* Style the buttons */
+  button {
+    width: 25px;
+    height: 15px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(255, 120, 25);
+    color: rgb(255, 120, 25);
+    font-size: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  /* Change the color of the buttons when the mouse is over */
+  button:hover {
+    background-color: grey;
+  }
+  /* Create the warped or distorted effect on the buttons when they are pressed, USE -10 and +10 */
+  button:active {
+    transform: scale(0.8) skew(-10deg, +10deg);
+  }
+</style>
+
+  <script>
+    // Get the background element
+    var background = document.getElementById("background");
+
+    // Add an event listener for mouse movement
+    document.addEventListener("mousemove", function(event) {
+      // Get the mouse coordinates relative to the center of the window
+      var x = event.clientX - window.innerWidth / 50;
+      var y = event.clientY - window.innerHeight / 50;
+
+      // Calculate the percentage of the mouse position relative to the window size
+      var xPercent = x / window.innerWidth * 100;
+      var yPercent = y / window.innerHeight * 100;
+
+      // Update the transform origin of the background image to match the mouse position
+      background.style.transformOrigin = xPercent + "% " + yPercent + "%";
+    });
+
+          // Add an event listener for the mousedown event
+  img.addEventListener("mousedown", function() {
+    // Set the transform property to rotate the image by 90 degrees
+    img.style.transform = "rotate(180deg)";
+  });
+  // Add an event listener for the mouseup event
+  img.addEventListener("mouseup", function() {
+    // Set the transform property to rotate the image back to its original position
+    img.style.transform = "rotate(0deg)";
+  });
+  </script>
+</body>
+</html>
