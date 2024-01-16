@@ -31,16 +31,16 @@
 
   /*
   <button id="pause">⏸</button>
-  <button id="volume">🔊</button> 
+  <button id="volume">🔊</button>
   */
 
   </style>
 </head>
 <body>
   <div id="background"></div>
-  <audio src="music1.mp3" id="audio" controls="false"></audio>
+  <audio src="music1.mp3" loop id="audio" controls="false"></audio>
 <div id="controls">
-  <button id="play">▶</button> 
+  <button id="play">▶</button>
 
 </div>
 <script>
@@ -99,11 +99,11 @@
   }
   /* Change the color of the buttons when the mouse is over */
   button:hover {
-    background-color: orangered;
+    background-color: rgb(250, 100, 50);
   }
-  /* Create the warped or distorted effect on the buttons when they are pressed */
+  /* Create the warped or distorted effect on the buttons when they are pressed, USE -10 and +10 */
   button:active {
-    transform: scale(0.8) skew(-10deg, +10deg);
+    transform: scale(0.8) skew(-5000deg, +7000deg);
   }
 </style>
 
