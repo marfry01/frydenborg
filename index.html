@@ -28,10 +28,76 @@
 </head>
 <body>
   <div id="background"></div>
-  <audio hidden autoplay loop> <!-- Remove the muted attribute -->
-    <source src="music1.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <audio src="music1.mp3" id="audio" controls="false"></audio>
+<div id="controls">
+  <button id="play">▶</button>
+  <button id="pause">⏸</button>
+  <button id="volume">🔊</button>
+</div>
+<script>
+  // Get the audio element by its id
+  var audio = document.getElementById("audio");
+  // Get the play button by its id
+  var play = document.getElementById("play");
+  // Get the pause button by its id
+  var pause = document.getElementById("pause");
+  // Get the volume button by its id
+  var volume = document.getElementById("volume");
+  // Add an event listener for the click event on the play button
+  play.addEventListener("click", function() {
+    // Play the audio
+    audio.play();
+  });
+  // Add an event listener for the click event on the pause button
+  pause.addEventListener("click", function() {
+    // Pause the audio
+    audio.pause();
+  });
+  // Add an event listener for the click event on the volume button
+  volume.addEventListener("click", function() {
+    // Toggle the volume between 0 and 1
+    if (audio.volume == 0) {
+      audio.volume = 1;
+    } else {
+      audio.volume = 0;
+    }
+  });
+</script>
+<style>
+  /* Hide the audio element */
+  audio {
+    display: none;
+  }
+  /* Position the controls over the audio element */
+  #controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  /* Style the buttons */
+  button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: lightpurple;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  /* Change the color of the buttons when the mouse is over */
+  button:hover {
+    background-color: purple;
+  }
+  /* Create the warped or distorted effect on the buttons when they are pressed */
+  button:active {
+    transform: scale(0.8) skew(-10deg, -10deg);
+  }
+</style>
+
   <script>
     // Get the background element
     var background = document.getElementById("background");
