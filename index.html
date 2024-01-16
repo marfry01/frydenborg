@@ -26,7 +26,7 @@
     }
 
     #background:active {
-      transform: scale(1.1); /* Zoom in the image when pressed */
+      transform: scale(5.1); /* Zoom in the image when pressed */
     }
 
   /*
@@ -103,7 +103,7 @@
   }
   /* Create the warped or distorted effect on the buttons when they are pressed, USE -10 and +10 */
   button:active {
-    transform: scale(0.8) skew(-5000deg, +7000deg);
+    transform: scale(0.8) skew(-10deg, +10deg);
   }
 </style>
 
@@ -114,8 +114,8 @@
     // Add an event listener for mouse movement
     document.addEventListener("mousemove", function(event) {
       // Get the mouse coordinates relative to the center of the window
-      var x = event.clientX - window.innerWidth / 2;
-      var y = event.clientY - window.innerHeight / 2;
+      var x = event.clientX - window.innerWidth / 50;
+      var y = event.clientY - window.innerHeight / 50;
 
       // Calculate the percentage of the mouse position relative to the window size
       var xPercent = x / window.innerWidth * 100;
